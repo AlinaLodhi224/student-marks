@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function to calculate average
+function calculateAverage(marks) {
+    const total = marks.reduce((acc, mark) => acc + mark, 0);
+    return total / marks.length;
+}
+
+// Function to calculate percentage
+function calculatePercentage(marks) {
+    const totalMarks = 300; // Assuming each subject is out of 100
+    const obtainedMarks = marks.reduce((acc, mark) => acc + mark, 0);
+    return (obtainedMarks / totalMarks) * 100;
+}
+
+// Main function
+function mainFunction() {
+    // Input marks for 3 subjects
+    const marks = [];
+    for (let i = 1; i <= 3; i++) {
+        const mark = parseFloat(prompt(`Enter marks for subject ${i}:`));
+        if (isNaN(mark) || mark < 0 || mark > 100) {
+            document.write("Please enter valid marks between 0 and 100.");
+            return;
+        }
+        marks.push(mark);
+    }
+
+    // Calculate average and percentage
+    const average = calculateAverage(marks);
+    const percentage = calculatePercentage(marks);
+
+    // Display results
+    document.write(`Average Marks: ${average.toFixed(2)}`);
+    document.write(`Percentage: ${percentage.toFixed(2)}%`);
+}
+
+mainFunction();
+
+    </script>
+</body>
+</html>
